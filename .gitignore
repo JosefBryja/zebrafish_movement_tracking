@@ -1,7 +1,3 @@
 # Ignore the video files
-*.mp4
-*.avi
-
-!Data/
-!Analysis/
-!Progs/
+Data/*
+Analysis/*
