@@ -1,0 +1,4 @@
+# Ignore video files in this folder
+*.mp4
+*.avi
+
