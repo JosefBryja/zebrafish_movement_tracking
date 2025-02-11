@@ -22,6 +22,9 @@ def subtract(video, kernel_size = 51, normalize = True):
     Subtracts blured video. Helps with further segmentation.
     Gaussian blur is used.
     """
+    
+    # Create an empty list
+    subtracted_list = [] 
 
     # Check video
     check_vid(video)
@@ -47,6 +50,9 @@ def subtract(video, kernel_size = 51, normalize = True):
             subtracted = cv2.normalize(subtracted, None, 0, 255, cv2.NORM_MINMAX)
         else:
             continue
+        
+        # Append image to the list
+        subtracted_list.append(subtracted)
 
         # Show results
         cv2.imshow("Original", gray)
@@ -61,7 +67,7 @@ def subtract(video, kernel_size = 51, normalize = True):
     video.release()
     cv2.destroyAllWindows()
 
-    return subtracted
+    return subtracted_list
 
 
 def threshold(video, threshold = 100):
@@ -99,3 +105,4 @@ def threshold(video, threshold = 100):
 
 # Try it
 sub = subtract(vid, kernel_size = 51)
+threshold(sub)
